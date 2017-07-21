@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Survey Form </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static "survey/css/style.css" %}">
+
+    </head>
+    <body>
+
+    <form action="/survey/process" method="post">
+        {% csrf_token %}
+
+        Your Name: <input type="text" name="name">
+        <br>
+        <br>
+        Dojo Location: <select name="location">
+            <option value="Mountain View"> Mountain View </option>
+            <option value="San Jose"> San Jose </option>
+            <option value="Seattle"> Seattle </option>
+        </select>
+        <br>
+        <br>
+        Favorite Language: <select name="lang">
+            <option value="Javascript"> Javascript </option>
+            <option value="Python"> Python </option>
+            <option value="Java"> Java </option>
+        </select>
+        <br>
+        <br>
+        Comments (optional): <textarea name="comments"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+    
+
+
+
+    </body>
+</html>
